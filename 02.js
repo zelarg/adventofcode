@@ -1,4 +1,4 @@
-const { readFile } = require('./helpers/init')
+const { readFile } = require('./helpers/utils')
 const input = readFile('input/02-1.txt')
 // ---------------------------------------------
 

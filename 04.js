@@ -1,4 +1,4 @@
-const { readFile, sumAll } = require('./helpers/init')
+const { readFile, sumAll } = require('./helpers/utils')
 const input = readFile('input/04-1.txt').split('\n').slice(0, -1)
 // ---------------------------------------------
 
