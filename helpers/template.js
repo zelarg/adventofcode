@@ -1,6 +1,6 @@
 import * as utils from './helpers/utils.js'
 // import { lcm, gcd } from 'mathjs'
-const input = (await utils.readFile('input/11-1.txt')).split('\n')
+const input = (await utils.readFile('input/11-1.txt')).split('\n').slice(0,-1)
 // ---------------------------------------------
 
 let a,b,c,d

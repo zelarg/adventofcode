@@ -122,6 +122,16 @@ const range = (from, to, step = 1) => {
     })
 }
 
+const search2Darray = (arr, needle) => {
+    for(var i = 0; i < arr.length; i++){
+        let j = arr[i].indexOf(needle)
+        if (j >= 0) {
+            return [i, j]
+        }
+    }
+    return false
+}
+
 // ============ init ============
 let t0 = performance.now()
 console.log(chalk.whiteBright(' ===== init ====='))
@@ -138,4 +148,5 @@ export {
     transpose,
     assert,
     range,
+    search2Darray,
 }
