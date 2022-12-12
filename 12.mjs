@@ -1,6 +1,4 @@
 import * as U from './helpers/utils.js'
-import {min} from "mathjs";
-import {search2Darray} from "./helpers/utils.js";
 // import { lcm, gcd } from 'mathjs'
 const input = (await U.readFile('input/12-1.txt')).split('\n').slice(0,-1)
 // ---------------------------------------------
@@ -11,7 +9,7 @@ let r
 let elev = input.map(x => x.split(''))
 
 // locate 'S'
-let [sx, sy] = search2Darray(elev, 'S')
+let [sx, sy] = U.search2Darray(elev, 'S')
 
 elev[sx][sy] = 'a'
 let stepMap = U.range(elev.length).map(x => U.range(elev[0].length).fill(1000))
