@@ -1,0 +1,27 @@
+{
+  "name": "adventofcode",
+  "type": "module",
+  "version": "1.0.0",
+  "description": "Execute in Node:\r ```shell\r $ node 01.js\r ```",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "Zelarg",
+  "license": "ISC",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/zelarg/adventofcode.git"
+  },
+  "bugs": {
+    "url": "https://github.com/zelarg/adventofcode/issues"
+  },
+  "homepage": "https://github.com/zelarg/adventofcode#readme",
+  "dependencies": {
+    "chalk": "^5.2.0",
+    "dotenv": "^16.0.3",
+    "mathjs": "^11.5.0",
+    "rfdc": "^1.3.0"
+  }
+}
