@@ -63,9 +63,14 @@ const took = (msg = '') => {
 const sleep = ms => new Promise(r => setTimeout(r, ms));
 
 const sort = (arr, prop, asc = true) => {
-    return arr.sort(function (a, b) {
-        return (asc) ? b[prop] - a[prop] : b[prop] - a[prop];
-    })
+    if (prop)
+        return arr.sort(function (a, b) {
+            return (asc) ? a[prop] - b[prop] : b[prop] - a[prop];
+        })
+    else
+        return arr.sort(function (a, b) {
+            return (asc) ? a - b : b - a;
+        })
 }
 
 const prod = (arr, prop) => {
@@ -122,6 +127,10 @@ const range = (from, to, step = 1) => {
     })
 }
 
+const create2Darray = (rows, cols, value=0) => {
+    return Array(rows).fill(value).map(()=>Array(cols).fill(value))
+}
+
 const search2Darray = (arr, needle) => {
     for(var i = 0; i < arr.length; i++){
         let j = arr[i].indexOf(needle)
@@ -149,4 +158,5 @@ export {
     assert,
     range,
     search2Darray,
+    create2Darray,
 }
