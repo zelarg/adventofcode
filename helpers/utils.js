@@ -1,6 +1,6 @@
 import fs from 'fs'
 import https from 'https'
-import dotenv from 'dotenv'
+import * as dotenv from 'dotenv'
 import rfdc from 'rfdc' // Really Fast Deep Clone
 import chalk from 'chalk'
 
