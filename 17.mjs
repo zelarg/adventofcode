@@ -170,3 +170,7 @@ U.took('part 2')
 
 // Build height 3197 iterations 11746
 // -- [part 1] took 14 ms --
+
+// repeating pattern detected every 1715 shapes = every 2690 buildHeight
+// Part 2 Total build height 1568513119571 , iterations 30214
+// -- [part 2] took 52.23 ms --
