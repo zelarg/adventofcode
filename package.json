@@ -19,6 +19,7 @@
   },
   "homepage": "https://github.com/zelarg/adventofcode#readme",
   "dependencies": {
+    "algebra.js": "^0.2.6",
     "chalk": "^5.2.0",
     "dotenv": "^16.0.3",
     "double-ended-queue": "^2.1.0-0",

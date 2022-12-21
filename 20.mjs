@@ -65,7 +65,7 @@ for (let t = 0; t<10; t++) {
     mix(inp2)
 }
 
-console.log('Part1', coordsSum(inp2))
+console.log('Part2', coordsSum(inp2))
 U.took('part 2')
 
 // Part1 19559
