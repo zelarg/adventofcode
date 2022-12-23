@@ -53,7 +53,7 @@ let res = eq.solveFor('humn')
 console.log('Part 2:', res.numer);
 U.took('part 2')
 
-// Part 1 104272990112064
+// Part 1: 104272990112064
 // -- [part 1] took 15.11 ms --
 // Part 2: 3220993874133
 // -- [part 2] took 16.6 ms --
