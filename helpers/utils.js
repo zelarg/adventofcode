@@ -127,6 +127,8 @@ const range = (from, to, step = 1) => {
     })
 }
 
+const mod = (a, b) => ((a % b) + b) % b
+
 const create2Darray = (rows, cols, value=0) => {
     return Array(rows).fill(value).map(()=>Array(cols).fill(value))
 }
@@ -159,4 +161,5 @@ export {
     range,
     search2Darray,
     create2Darray,
+    mod,
 }

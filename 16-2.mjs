@@ -1,8 +1,6 @@
 import * as U from './helpers/utils.js'
-// import { lcm, gcd } from 'mathjs'
 const input = (await U.readFile('input/16-1.txt')).split('\n').slice(0,-1)
 // ---------------------------------------------
-
 
 let Vo = []
 
@@ -37,17 +35,13 @@ if (SIMPLIFY_PATHS) {
                     target2[1][k] = p1 + '-' + (+d+ +d1)
                 }
             }
-            // console.log('--', target1, target2)
             delete V[key]
         }
     }
 }
-
-
-console.log(Vo)
-console.log(' ---------- ')
-console.log(V)
-
+// console.log(Vo)
+// console.log(' ---------- ')
+// console.log(V)
 
 function countPressure(openedValves) {
     let pr = 0
@@ -65,7 +59,6 @@ for (const [key, value] of Object.entries(V)) {
 let recursiveCalls = 0
 
 let globalMaxPressures = U.range(0, 31).fill(0)
-let t = ''
 let maxReportedPressure = 0
 
 let roomCache = new Map()
@@ -94,14 +87,10 @@ function processRoom(room1, room2, distance1, distance2, minute, pressure, opene
             maxReportedPressure = newPressure
             console.log(`[full-valves] At ${untilMinute} min mark, max pressure: `, newPressure, path)
         }
-        // if (room == 'CC' && minute == 25)
-        //     console.log('- all valves opened, return pressure: ', pressure + (untilMinute - minute -1) * incPressure, path)
         return newPressure
     }
 
     if (minute < untilMinute) {
-        // open valve
-
         let moves1 = []
         let moves2 = []
 
@@ -186,21 +175,18 @@ let maxPressure = processRoom('AA', 'AA', 1, 1, 1, 0, [], '[AA,AA]:')
 // let maxPressure = processRoom('FF', 20, 776, ['BB','DD', 'HH', 'JJ'], 'Minute20:FF')
 // let maxPressure = processRoom('EE', 21, 852, ['BB','DD', 'HH', 'JJ'], 'Minute21:EE')
 
-console.log('global pressures at minutes')
 // console.table(globalMaxPressures)
-console.log('max pressure', maxPressure)
 console.log('recursive calls', recursiveCalls)
-console.log('cache size', roomCache.size)
+// console.log('cache size', roomCache.size)
 
-
+console.log('Part 2:', maxPressure)
 U.took('part 2')
 
 
-// max pressure 1580
-// recursive calls 54146
-// -- [part 1] took 62.99 ms --
+// recursive calls 54_146
+// Part 1: 1580
+// -- [part 1] took 50.52 ms --
 
-// max pressure 2213
-// recursive calls 8844475
-// cache size 8844449
-// -- [part 2] took 36071.18 ms --
+// recursive calls 8_844_475
+// Part 2: 2213
+// -- [part 2] took 36631.81 ms --

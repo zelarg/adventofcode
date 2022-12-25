@@ -1,6 +1,6 @@
 import * as U from './helpers/utils.js'
 // import { lcm, gcd } from 'mathjs'
-const input = (await U.readFile('input/tmp.txt')).split('\n').slice(0,-1)
+const input = (await U.readFile('input/16-1.txt')).split('\n').slice(0,-1)
 // ---------------------------------------------
 
 
@@ -34,15 +34,9 @@ for (const [key, value] of Object.entries(V)) {
                 target2[1][k] = p1 + '-' + (+d+ +d1)
             }
         }
-        // console.log('--', target1, target2)
         delete V[key]
     }
 }
-
-console.log(Vo)
-console.log(' ---------- ')
-console.log(V)
-
 
 function countPressure(openedValves) {
     let pr = 0
@@ -64,14 +58,10 @@ let t = ''
 let maxReportedPressure = 0
 
 function processRoom(room, minute, pressure, openedValves, path) {
-    // minute = number of minutes when starting room process
     recursiveCalls++
-    // console.log(`processing minute ${minute} (start of), room ${room}, valves=[${openedValves}], pressure=${pressure}`)
     let options = [0]
-    // increase pressure released
     let incPressure = countPressure(openedValves)
     pressure += incPressure
-    // console.log(' -- pressure', pressure)
     options.push(pressure)
     if (pressure > globalMaxPressures[minute])
         globalMaxPressures[minute] = pressure
@@ -85,8 +75,6 @@ function processRoom(room, minute, pressure, openedValves, path) {
     const untilMinute = 30
 
     if (openedValves.length == totalValves) {
-        // if (room == 'CC' && minute == 25)
-        //     console.log('- all valves opened, return pressure: ', pressure + (untilMinute - minute -1) * incPressure, path)
         return pressure + (untilMinute - minute) * incPressure
     }
 
@@ -105,20 +93,14 @@ function processRoom(room, minute, pressure, openedValves, path) {
             let p2 = processRoom(nextRoomName, minute+(distance), pressure + (distance-1)*incPressure, openedValves, path + '>' + nextRoomName)
             options.push(p2)
         }
-        // console.log('>>> returning max of', options)
         return Math.max(...options)
     } else {
         if (pressure > maxReportedPressure) {
             maxReportedPressure = pressure
             console.log('At 30 min mark, max pressure: ', pressure, minute, path)
         }
-        // console.log(`= backtrack, return from ${room}`, Math.max(...options))
         return pressure
     }
-}
-
-function numberWithCommas(x) {
-    return x.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
 }
 
 let maxPressure = processRoom('AA', 1, 0, [], '')
@@ -129,15 +111,12 @@ let maxPressure = processRoom('AA', 1, 0, [], '')
 // let maxPressure = processRoom('FF', 20, 776, ['BB','DD', 'HH', 'JJ'], 'Minute20:FF')
 // let maxPressure = processRoom('EE', 21, 852, ['BB','DD', 'HH', 'JJ'], 'Minute21:EE')
 
-console.log('global pressures at minutes')
-console.table(globalMaxPressures)
-console.log('max pressure', maxPressure)
+// console.log('global pressures at minutes')
+// console.table(globalMaxPressures)
 console.log('recursive calls', recursiveCalls)
-
-
+console.log('Part 1:', maxPressure)
 U.took('part 1')
 
-
-// max pressure 1580
 // recursive calls 54146
-// -- [part 1] took 62.99 ms --
+// Part 1: 1580
+// -- [part 1] took 50.52 ms --
